@@ -5,10 +5,10 @@ print("===================================")
 # /===== Data Model =====/
 pasien_list = [ 
     {"id_pasien": 1, "nama": "Andi", "umur": 25, "keluhan": "Batuk", "no_hp" : "081234567890", "alamat" : "Tangerang"},
-    {"id_pasien": 2, "nama": "Budi", "umur": 40, "keluhan": "Flu", "no_hp" : "08234567892", "alamat" : "Jakarta"},
-    {"id_pasien": 3, "nama": "Arif", "umur": 30, "keluhan": "Batuk", "no_hp" : "08127894563", "alamat" : "Tangerang"},
-    {"id_pasien": 4, "nama": "Rifki", "umur": 52, "keluhan": "Demam", "no_hp" : "08571234567", "alamat" : "Tangerang Selatan"},
-    {"id_pasien": 5, "nama": "Nanda", "umur": 45, "keluhan": "Mual", "no_hp" : "08192345678", "alamat" : "Tangerang"},
+    {"id_pasien": 2, "nama": "Budi", "umur": 40, "keluhan": "Flu", "no_hp" : "082345678920", "alamat" : "Jakarta"},
+    {"id_pasien": 3, "nama": "Arif", "umur": 30, "keluhan": "Batuk", "no_hp" : "081278945631", "alamat" : "Tangerang"},
+    {"id_pasien": 4, "nama": "Rifki", "umur": 52, "keluhan": "Demam", "no_hp" : "085712345672", "alamat" : "Tangerang Selatan"},
+    {"id_pasien": 5, "nama": "Nanda", "umur": 45, "keluhan": "Mual", "no_hp" : "081923456783", "alamat" : "Tangerang"},
 ]
 
 # Function ID otomatis pasien
