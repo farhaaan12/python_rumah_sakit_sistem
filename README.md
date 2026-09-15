@@ -1,60 +1,53 @@
-# Python CRUD Application for [Business Domain]
+# Python CRUD Application for Healthcare System
 
-A comprehensive Python application for managing [Data Entity] data with Create, Read, Update, and Delete (CRUD) operations.
+A comprehensive Python CLI application for managing Patient Data with Create, Read, Update, and Delete (CRUD) operations.
 
 ## Business Understanding
 
-This project caters to the [Industry/Business Domain] industry, specifically addressing the need to manage [Data Entity] data efficiently. [Data Entity] plays a crucial role in [Explain the importance of data entity in business processes].
+This project caters to the Healthcare industry (Hospitals, Clinics, or Medical Centers), specifically addressing the need to manage patient registration and medical queue data efficiently. Accurate patient record management plays a crucial role in ensuring smooth medical administrative processes and timely care delivery.
 
 **Benefits:**
 
-* Improved data accuracy and consistency
-* Streamlined data management processes
-* Enhanced decision-making through readily available data
-* ... (List additional benefits relevant to the business)
+* Improved patient data accuracy and consistency through strict input validation
+* Streamlined patient registration and lookup processes
+* Reduced administrative errors during patient check-in
+* Efficient searching mechanism supporting both Patient ID and partial Name matching
 
 **Target Users:**
 
-This application is designed for [Target Users] (e.g., sales representatives, inventory managers, customer support agents) within the organization to facilitate their [Tasks/Activities] related to [Data Entity].
+This application is designed for Medical Receptionists, Clinic Administrators, and Healthcare Support Staff to facilitate their daily tasks related to patient registration, updates, and record retrieval.
 
 ## Features
 
-* **Create:**
-    * Add new [Data Entity] entries with essential details like [List relevant fields].
-    * Implement validation rules to ensure data integrity (if applicable, e.g., unique identifiers, data type checks).
-* **Read:**
-    * Search and retrieve specific [Data Entity] records by applying filters based on [Searchable fields].
-    * Display comprehensive information for each [Data Entity] in a user-friendly format.
-    * Integrate pagination and sorting capabilities for large datasets (if applicable).
-* **Update:**
-    * Modify existing [Data Entity] data to reflect changes in [Attributes/Properties].
-    * Provide clear confirmation or error messages based on update success or failure.
-* **Delete:**
-    * Allow for the removal of unwanted [Data Entity] records with appropriate authorization checks (if applicable).
-    * Implement soft delete functionality to prevent permanent data loss (optional, depending on business needs).
-    * Consider offering data archiving capabilities (optional).
-* **Security:**
-    * Implement user authentication and authorization mechanisms (if sensitive data is involved) to control access to different CRUD operations.
-    * ... (Specify additional security features as needed)
-* **Reporting:**
-    * Generate reports or summaries based on [Data Entity] data to support [Business Functions] (optional).
-    * Export data in various formats (e.g., CSV, Excel) for further analysis (optional).
+* **Create (Tambah Data Pasien):**
+    * Add new patient entries with auto-generated incremental IDs.
+    * Essential input fields: `Nama`, `Umur`, `Keluhan`, `No HP`, and `Alamat`.
+    * Strict input validation rules to prevent empty fields, non-numeric age, or invalid age values (≤ 0).
+    * Confirmation prompt before saving new data.
+* **Read (Daftar & Cari Data Pasien):**
+    * Display all registered patients in a structured tabular format.
+    * Dynamic search functionality (`filter_search`) supporting both exact ID lookups and partial case-insensitive Name searching.
+    * Smart disambiguation: Displays candidate lists if multiple patients match a search keyword.
+    * Interactive retry mechanism allowing users to search again if no records are found without returning to the main menu.
+* **Update (Ubah Data Pasien):**
+    * Search and modify existing patient details (`Nama`, `Umur`, `Keluhan`, `No HP`, `Alamat`).
+    * Clear preview of current data before requesting updated inputs.
+    * Save confirmation to prevent accidental overwrites.
+* **Delete (Hapus Data Pasien):**
+    * Safely remove patient records after fetching via the smart search filter.
+    * Displays target patient details for verification before final deletion confirmation.
 
 ## Installation
 
 1. **Prerequisites:**
-    * Python version (specify the required version)
-    * Additional dependencies (list any required packages)
+    * Python 3.x (Python 3.8 or higher recommended)
+    * Built-in standard library modules (No third-party packages required)
 
 2. **Installation:**
     ```bash
-    git clone https://github.com/<your-username>/<your-repo-name>.git
-    cd <your-repo-name>
-    pip install -r requirements.txt  # If using a requirements.txt file
+    git clone [https://github.com/](https://github.com/)<your-username>/python-rumah-sakit-sistem.git
+    cd python-rumah-sakit-sistem
     ```
-
-3. **Database Setup (if applicable):**
-    Follow specific instructions for configuring your database connection, aligning with the business's chosen database management system.
 
 ## Usage
 
@@ -63,18 +56,23 @@ This application is designed for [Target Users] (e.g., sales representatives, in
     python main.py
     ```
 
-2. **CRUD Operations:**
-    * **Create:** Add a new [Data Entity] record, for example, a new customer in a customer management system, providing details like name, contact information, and preferences.
-    * **Read:** Search and retrieve customer information by name, ID, or other relevant criteria.
-    * **Update:** Modify customer details, such as updating their address or contact details.
-    * **Delete:** Remove a customer record from the system (with appropriate authorization, if applicable).
+2. **CRUD Operations Guide:**
+    * **1. Daftar Pasien:** View all patient records in a clean table format.
+    * **2. Tambah Data Pasien:** Register a new patient by entering their personal details and primary complaints.
+    * **3. Cari Data Pasien:** Search for a patient by entering their ID or Name (supports partial name input).
+    * **4. Ubah Data Pasien:** Search for a patient, view their current record, and update their information.
+    * **5. Hapus Data Pasien:** Search for a patient and confirm removal from the system.
+    * **6. Keluar:** Safely exit the application.
 
 ## Data Model
-This project utilizes a [Data Structure] (e.g., relational database, JSON documents) to represent [Data Entity] data. The following fields are typically stored:
-   * [Field 1]: (Data type) - Description of the field's purpose in the business context.
-   * [Field 2]: (Data type) - Description of the field's purpose in the business context.
-   * ... (List all relevant fields)
+This project utilizes an in-memory `list` of `dictionaries` (`pasien_list`) to represent patient records. The following fields are stored for each entry:
+
+* `id_pasien`: (Integer) - Unique identifier automatically generated for each patient.
+* `nama`: (String) - Full name of the patient.
+* `umur`: (Integer) - Age of the patient in years (must be > 0).
+* `keluhan`: (String) - Medical complaint or symptoms reported by the patient.
+* `no_hp`: (String) - Active phone number for patient contact.
+* `alamat`: (String) - Residential address or city of origin.
 
 ## Contributing
-We welcome contributions to this project! Please feel free to open a pull request, sent to [your_email] or submit an issue if you encounter any problems or have suggestions for improvements.
-
+We welcome contributions to this project! Please feel free to open a pull request or submit an issue if you encounter any problems or have suggestions for improvements.
